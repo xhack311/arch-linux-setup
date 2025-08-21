@@ -1,0 +1,6 @@
+# Arch Setup
+iwctl
+  station wlan0 scan
+  station wlan get-networks
+  station wlan connect "<ssid>"
+archinstall
