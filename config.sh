@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# change to root
+sudo su
+
+# change from bash to zsh
+chsh -s /bin/zsh
+
 # install dotfiles
 cd ~
 mkdir ~/.config/starship
