@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# install iw and boost wireless tx signal
+sudo pacman -S iw
+sudo iw reg set US
+sudo ip link set wlan0 down
+sudo iw dev wlan0 set txpower fixed 3000
+sudo ip link set wlan0 up
+
 # Get git repo for configuration
 git clone https://github.com/xhack311/arch-linux-setup.git
 cd arch-linux-setup
