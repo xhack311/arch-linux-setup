@@ -1,17 +1,21 @@
 #!/bin/sh
 
-# change to root
-sudo su
+# Get git repo for configuration
+git clone https://github.com/xhack311/arch-linux-setup.git
 
-# change from bash to zsh
-chsh -s /bin/zsh
+# user configuration
 
 # install dotfiles
 cd ~
 mkdir ~/.config/starship
-git clone https://github.com/typecraft-dev/dotfiles.git
 cp ~/dotfiles/starship/.config/starship.toml ~/.config/starship.toml
-sed -i '$ a\eval $(starship init bash)'
+sed -i '$ a\eval $(starship init zsh)' ~/.config/.zshrc
+
+# change from bash to zsh
+chsh -s /usr/bin/zsh $USER
+
+# change to root
+sudo su
 
 # install yay
 git clone
