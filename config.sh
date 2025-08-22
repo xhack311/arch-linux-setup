@@ -1,9 +1,11 @@
 #!/bin/sh
 
 # install dotfiles
+cd ~
 mkdir ~/.config/starship
 git clone https://github.com/typecraft-dev/dotfiles.git
-cp dotfiles/starship/.config/starship.toml ~/.config/starship.toml
+cp ~/dotfiles/starship/.config/starship.toml ~/.config/starship.toml
+sed -i '$ a\eval $(starship init bash)'
 
 # install yay
 git clone
@@ -13,7 +15,7 @@ makepkg -si
 
 # disable iwd
 sudo systemctl stop iwd
-sudo systemctl disabl iwd
+sudo systemctl disable iwd
 
 # enable NetworkManager
 sudo systemctl enable NetworkManager.service
